@@ -1,8 +1,7 @@
 # Lexical-diversity-catalan-ai
 Master's thesis (UPF). Lexical diversity analysis: comparing human vs AI-generated Catalan academic abstracts using quantitative corpus-linguistic metrics.
 
-**Author**: [Victòria Ferrando]  
-**Institution**: [Universitat Pompeu Fabra, Master in Theoretical and Applied Linguistics]  
+**Institution**: Universitat Pompeu Fabra, Master in Theoretical and Applied Linguistics
 **Year**: 2025-2026
 
 ## Overview
@@ -70,4 +69,3 @@ Visualization of Zipf's law. Creates log-log plot showing word frequency distrib
 - Catalan academic PhD abstracts
 - Pre-LLM era: 2010-2020
 - Post-LLM era: 2023+
-
