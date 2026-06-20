@@ -1,2 +1,73 @@
 # Lexical-diversity-catalan-ai
 Master's thesis (UPF). Lexical diversity analysis: comparing human vs AI-generated Catalan academic abstracts using quantitative corpus-linguistic metrics.
+
+**Author**: [Victòria Ferrando]  
+**Institution**: [Universitat Pompeu Fabra, Master in Theoretical and Applied Linguistics]  
+**Year**: 2025-2026
+
+## Overview
+
+This repository contains Python (3.13 version) scripts for analyzing lexical divergence between three corpora:
+
+1. **pre-LLM human-written abstracts** (150 PhD abstracts, 2010-2020)
+2. **post-LLM human-written abstracts** (150 PhD abstracts, 2023+)
+3. **AI-generated abstracts** (150 abstracts generated with Gemma 4.31B)
+
+The analysis applies four quantitative metrics:
+- **MATTR** (Moving Average Type-Token Ratio) — Lexical diversity
+- **Zipf's Law** — Word distribution
+- **Normalized Frequencies (PMW)** — Per Million Word comparison
+- **Log-Likelihood Test** — Statistical keyword extraction
+
+### API Setup
+
+For AI corpus generation, you need an OpenRouter API key:
+
+1. Create account at [OpenRouter.ai](https://openrouter.ai)
+2. Get your API key from dashboard
+3. Set environment variable:
+```bash
+   export OPENROUTER_API_KEY="your_key_here"
+```
+## Script Guide
+
+### 1. **DATA.py** 
+Harvests 150 preLLM + 150 postLLM abstracts from the TDX repository (Tesis Doctorals en Xarxa).
+
+### 2. **CORPUS_AI.py** 
+Creates 150 artificial abstracts using Gemma 4.31B with two strategies:
+- **Strategy A (75 abstracts)**: Continue from title + first 50 words
+- **Strategy B (75 abstracts)**: Generate from scratch using title + keywords
+
+### 3. **FREQUENCIES.py** 
+Extracts lemmatized word frequencies for the pre-LLM and the post-LLM corpora using spaCy.
+
+### 4. **FREQUENCIES_AI.py**
+Extracts lemmatized word frequencies for the AI corpus.
+
+### 5. **COMPARE-PRE-AI.py**
+Identifies new words, lost words, and frequency changes between the pre-LLM and the AI corpora.
+
+### 6. **COMPARE-POST-AI.py** 
+Identifies new words, lost words, and frequency changes between the post-LLM and the AI corpora.
+
+### 7. **COMPARE-PRE-POST.py** 
+Tracks lexical changes in human academic writing over time.
+
+### 8. **METRICS.py** 
+Quantitative evaluation of the corpora using corpus linguistics metrics. Computes:
+- **MATTR** scores (lexical diversity)
+- **Zipf's Law slopes** (word distribution)
+- **Log-Likelihood statistics** (keyword extraction)
+
+### 9. **SLOPE.py** 
+Visualization of Zipf's law. Creates log-log plot showing word frequency distributions for all three corpora.
+
+## Data
+
+### Input Data
+- Automatically collected from **TDX (Tesis Doctorals en Xarxa)** via OAI-PMH protocol
+- Catalan academic PhD abstracts
+- Pre-LLM era: 2010-2020
+- Post-LLM era: 2023+
+
